@@ -32,13 +32,15 @@ import { BsBook } from "react-icons/bs";
 
 const webLinks = [
   { name: "About", path: "/about" },
+  { name: "Tech Stack", path: "/tech-stack" },
+  { name: "Developer Story", path: "/story-timeline" },
   // { name: "Blog", path: "/blog" }
 ];
 
 const mobileLinks = [
   { name: "About", path: "/about" },
   // { name: "Blog", path: "/blog" },
-  { name: "Open Source", path: "/open-source" },
+  // { name: "Open Source", path: "/open-source" },
   { name: "Tech Stack", path: "/tech-stack" },
   { name: "Developer Story", path: "/story-timeline" }
   
@@ -129,7 +131,7 @@ export default function TopNav() {
                   onClose={onClose}
                 />
               ))}
-              <Menu isLazy>
+              {/* <Menu isLazy>
                 <MenuButton
                   as={Button}
                   variant="ghost"
@@ -196,7 +198,7 @@ export default function TopNav() {
                     </MenuItem>
                   </Link>
                 </MenuList>
-              </Menu>
+              </Menu> */}
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>

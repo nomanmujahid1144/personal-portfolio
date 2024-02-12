@@ -21,8 +21,17 @@ import { GoLocation } from 'react-icons/go';
 import { BsPhone } from 'react-icons/bs';
 import { HiOutlineMail } from 'react-icons/hi';
 import { MotionBox } from "./motion";
-import { BsFillBriefcaseFill } from "react-icons/bs";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom"
+import PhoneInput from 'react-phone-number-input';
+import { useAlert } from "react-alert";
+import 'react-phone-number-input/style.css';
 import Header from "./header";
+import { sendContactUsMessage } from "../redux/Actions/UserActions"
+import InputField from '../components/fields/InputField';
+import TextField from '../components/fields/TextField';
+
 const TURQUOISE = "#06b6d4";
 
 const contactOptions = [
@@ -43,7 +52,43 @@ const contactOptions = [
   }
 ];
 
-const Contact = () => {
+const Contact: React.FC = () => {
+
+
+  const [value, setValue] = useState<string>('');
+  const dispatch = useDispatch();
+  const alert = useAlert();
+
+  const [credentials, setcredentials] = useState({
+      fullName: "",
+      companyName: "",
+      subject: "",
+      email: "",
+      message: "",
+  });
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('Noman Here')
+      const { fullName, subject, companyName, email,  message } = credentials;
+      setcredentials({
+        fullName: '',
+        companyName: '',
+        subject: '',
+              email: '',
+              message: "",
+      })
+      setValue('');
+      dispatch(sendContactUsMessage(fullName, companyName , subject, value, email, message, alert));
+  };
+
+
+  const onChange = (e) => {
+      setcredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+
+
   return (
     <Container maxW="7xl" py={10} px={{ base: 5, md: 8 }}>
       <Stack spacing={10}>
@@ -97,50 +142,103 @@ const Contact = () => {
             </Fragment>
           ))}
         </Stack>
-        <VStack
-          as="form"
-          spacing={8}
-          w="100%"
-          bg={useColorModeValue('white', 'gray.700')}
-          rounded="lg"
-          boxShadow="lg"
-          p={{ base: 5, sm: 10 }}
-        >
-          <VStack spacing={4} w="100%">
-            <Stack w="100%" spacing={3} direction={{ base: 'column', md: 'row' }}>
-              <FormControl id="name">
-                <FormLabel>Name</FormLabel>
-                <Input type="text" placeholder="Noman Mujahid" rounded="md" />
-              </FormControl>
-              <FormControl id="email">
-                <FormLabel>Email</FormLabel>
-                <Input type="email" placeholder="hi@nomanmujahid.com" rounded="md" />
-              </FormControl>
-            </Stack>
-            <FormControl id="subject">
-              <FormLabel>Subject</FormLabel>
-              <Input type="text" placeholder="Are you available for freelance work?" rounded="md" />
-            </FormControl>
-            <FormControl id="message">
-              <FormLabel>Message</FormLabel>
-              <Textarea size="lg" placeholder="Enter your message" rounded="md" />
-            </FormControl>
+        <FormControl onSubmit={handleSubmit}>
+          <VStack
+            as="form"
+            spacing={8}
+            w="100%"
+            bg={useColorModeValue('white', 'gray.700')}
+            rounded="lg"
+            boxShadow="lg"
+            p={{ base: 5, sm: 10 }}
+          >
+              <VStack spacing={4} w="100%">
+                <Stack w="100%" spacing={3} direction={{ base: 'column', md: 'row' }}>
+                    <InputField
+                      label="Name"
+                      type="text"
+                      extras="w-100"
+                      required={true}
+                      id="fullName"
+                      placeholder="Noman Mujahid"
+                      value={credentials?.fullName}
+                      onChange={onChange}
+                    />
+                    <InputField
+                      label="Email"
+                      type="email"
+                      required={true}
+                      id="email"
+                      placeholder="hi@nomanmujahid.com"
+                      value={credentials?.email}
+                      onChange={onChange}
+                    />
+                </Stack> 
+                <Stack w="100%" spacing={3} direction={{ base: 'column', md: 'row' }}>
+                    <InputField
+                      label="Company Name"
+                      type="text"
+                      required={true}
+                      id="companyName"
+                      placeholder="eg: Busnet Limited"
+                      value={credentials?.companyName}
+                      onChange={onChange}
+                  />
+                    <Box w="100%">
+                      <FormLabel>Phone Number</FormLabel>
+                      <PhoneInput
+                        isValidPhoneNumber={true}
+                        limitMaxLength={true}
+                        className="form-control border border-gray-300 text-sm chakra-input form-control border-gray-200 dark:!border-white/10 dark:text-white css-1b73kmm"
+                        international
+                        initialValueFormat="international"
+                        countryCallingCodeEditable={false} 
+                        defaultCountry="PK"
+                        name="phoneNumber"
+                        placeholder="Enter phone number"
+                        value={value}
+                        onChange={setValue}
+                        displayInitialValueAsLocalNumber
+                      />  
+                    </Box>
+                </Stack> 
+                <InputField
+                  label="Subject"
+                  type="text"
+                  required={true}
+                  id="subject"
+                  placeholder="Are you available for freelance work?"
+                  value={credentials?.subject}
+                  onChange={onChange}
+                />
+                <TextField
+                  label="Message*"
+                  type="text"
+                  required={true}
+                  id="message"
+                  placeholder="Enter your message"
+                  value={credentials?.message}
+                  onChange={onChange}
+                />
+              </VStack>
+              <VStack w="100%">
+                <Button
+                  bg="#53c8c4"
+                  type='submit'
+                  color="white"
+                  _hover={{
+                      // bg: '#C6F6D5',
+                      cursor:"pointer"
+                  }}
+                  rounded="full"
+                  w={{ base: '100%', md: 'max-content' }}
+                                
+                >
+                  Send Message
+                </Button>
+              </VStack>
           </VStack>
-          <VStack w="100%">
-            <Button
-             bg="#53c8c4"
-              color="white"
-              _hover={{
-                  bg: '#C6F6D5',
-              }}
-              rounded="full"
-                w={{ base: '100%', md: 'max-content' }}
-                          
-            >
-              Send Message
-            </Button>
-          </VStack>
-        </VStack>
+        </FormControl>
       </Stack>
     </Container>
   );

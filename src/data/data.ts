@@ -25,11 +25,20 @@ import socket from "../assets/images/skills/socketio.png";
 
 export const companies = [
   {
+    title: "Upwork",
+    alt: "upwork.com",
+    role: "Full Stack Web Developer",
+    skills: ["MERN Stack Developer","React.Js", "Node.Js", "Express.Js", "MongoDB", "javascript", "AWS-Ec2", "JWT", "Socket.io"],
+    period: "2019 - Present",
+    compnayLocation:"Remote - (Part Time)",
+    logo: upwork,
+  },
+  {
     title: "CodeBreaker Technologies",
     alt: "codebreakertech.com",
     role: "MERN Stack Developer",
     skills: ["React.Js", "Node.Js", "Express.Js", "MongoDB", "javascript", "AWS-Ec2", "JWT", "Socket.io", "Stripe.Js"],
-    period: "2022 - Present",
+    period: "2022 - 2024",
     compnayLocation:"Islamabad, Pakistan",
     logo: codebreakers,
   },
@@ -42,17 +51,6 @@ export const companies = [
     compnayLocation:"Lahore, Pakistan",
     logo: deliverez,
   },
-  
-  {
-    title: "Upwork",
-    alt: "upwork.com",
-    role: "Full Stack Web Developer",
-    skills: ["MERN Stack Developer","React.Js", "Node.Js", "Express.Js", "MongoDB", "javascript", "AWS-Ec2", "JWT", "Socket.io"],
-    period: "2019 - Present",
-    compnayLocation:"Remote - (Part Time)",
-    logo: upwork,
-  },
-  
 ];
 
 export const institutes = [

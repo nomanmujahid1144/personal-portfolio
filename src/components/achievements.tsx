@@ -54,6 +54,123 @@ const Achievements = () => {
       <VStack textAlign="start" align="start" mb={5}>
         <Box>
           <Heading fontSize="2xl" fontWeight="600" my={5}>
+            2024
+          </Heading>
+          <Box>
+            <TimelineItem icon={FiUsers}>On Route to leaning Back-end❤️</TimelineItem>
+            <TimelineItem icon={FiPackage}>
+              Published my first post on this website{" "}
+              <InternalLink color={"blue.200"} url="/blog" text={"Blog"} />
+            </TimelineItem>
+            <TimelineItem icon={FiPackage}>
+              Published or contributed to{" "}
+              <InternalLink
+                color={"blue.200"}
+                url="/open-source"
+                text={"9 open-source repositories"}
+              />
+            </TimelineItem>
+            <TimelineItem icon={FiBarChart2}>
+            Built my portfolio website with{" "}
+              <ExternalLink
+                color={"blue.200"}
+                url=""
+                text={"React, Chakra-UI and Framer-motion,"}
+                target="_blank"
+              />
+            </TimelineItem>
+            <TimelineItem icon={FiHome} skipTrail>
+            Rebuilt my skill v3.0 {" "}
+              <ExternalLink
+                color={"blue.200"}
+                url=""
+                text={"Ract.js, Chakra-UI"}
+                target="_blank"
+              />
+
+            </TimelineItem>
+          </Box>
+        </Box>
+        <Box>
+          <Heading fontSize="2xl" fontWeight="600" my={5}>
+            2023
+          </Heading>
+          <Box>
+            <TimelineItem icon={FiUsers}>On Route to leaning Back-end❤️</TimelineItem>
+            <TimelineItem icon={FiPackage}>
+              Published my first post on this website{" "}
+              <InternalLink color={"blue.200"} url="/blog" text={"Blog"} />
+            </TimelineItem>
+            <TimelineItem icon={FiPackage}>
+              Published or contributed to{" "}
+              <InternalLink
+                color={"blue.200"}
+                url="/open-source"
+                text={"9 open-source repositories"}
+              />
+            </TimelineItem>
+            <TimelineItem icon={FiBarChart2}>
+            Built my portfolio website with{" "}
+              <ExternalLink
+                color={"blue.200"}
+                url=""
+                text={"React, Chakra-UI and Framer-motion,"}
+                target="_blank"
+              />
+            </TimelineItem>
+            <TimelineItem icon={FiHome} skipTrail>
+            Rebuilt my skill v3.0 {" "}
+              <ExternalLink
+                color={"blue.200"}
+                url=""
+                text={"Ract.js, Chakra-UI"}
+                target="_blank"
+              />
+
+            </TimelineItem>
+          </Box>
+        </Box>
+        <Box>
+          <Heading fontSize="2xl" fontWeight="600" my={5}>
+            2022
+          </Heading>
+          <Box>
+            <TimelineItem icon={FiUsers}>On Route to leaning Back-end❤️</TimelineItem>
+            <TimelineItem icon={FiPackage}>
+              Published my first post on this website{" "}
+              <InternalLink color={"blue.200"} url="/blog" text={"Blog"} />
+            </TimelineItem>
+            <TimelineItem icon={FiPackage}>
+              Published or contributed to{" "}
+              <InternalLink
+                color={"blue.200"}
+                url="/open-source"
+                text={"9 open-source repositories"}
+              />
+            </TimelineItem>
+            <TimelineItem icon={FiBarChart2}>
+            Built my portfolio website with{" "}
+              <ExternalLink
+                color={"blue.200"}
+                url=""
+                text={"React, Chakra-UI and Framer-motion,"}
+                target="_blank"
+              />
+            </TimelineItem>
+            <TimelineItem icon={FiHome} skipTrail>
+            Rebuilt my skill v3.0 {" "}
+              <ExternalLink
+                color={"blue.200"}
+                url=""
+                text={"Ract.js, Chakra-UI"}
+                target="_blank"
+              />
+
+            </TimelineItem>
+          </Box>
+        </Box>
+        <Box>
+          <Heading fontSize="2xl" fontWeight="600" my={5}>
             2021
           </Heading>
           <Box>

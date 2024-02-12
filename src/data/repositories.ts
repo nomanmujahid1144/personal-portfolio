@@ -9,7 +9,7 @@ export const repositories = [
     url: "https://github.com/nomanmujahid1144",
     live: "https://aliwahid",
     blurHash: "L25#he^nryxc^-w$V{V_56bqx[M{",
-    stars: "7",
+    stars: "5",
     fork: "3"
   },
 ];
