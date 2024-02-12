@@ -129,17 +129,17 @@ const Home = () => {
               Highlights
             </Text>
             <UnorderedList textAlign="left" paddingLeft={5} m={0}>
-            <ListItem>
+              {/* <ListItem>
                 <Link as={NavLink} to="/open-source">
                   Live/Local Github Repos
                   <Badge ml="1" colorScheme="green">
                     Check out
                   </Badge>
                 </Link>
-              </ListItem>
+              </ListItem> */}
               <ListItem>
-                <Link as={NavLink} to="/story-timeline">
-                  Story page
+                <Link as={NavLink} to="/about">
+                  About Me
                 </Link>
               </ListItem>
               <ListItem>
@@ -153,6 +153,11 @@ const Home = () => {
               <ListItem>
                 <Link as={NavLink} to="/achievements">
                   Achievements
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link as={NavLink} to="/story-timeline">
+                  Story page
                 </Link>
               </ListItem>
             </UnorderedList>

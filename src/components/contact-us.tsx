@@ -31,24 +31,28 @@ import Header from "./header";
 import { sendContactUsMessage } from "../redux/Actions/UserActions"
 import InputField from '../components/fields/InputField';
 import TextField from '../components/fields/TextField';
+import {SlickSliderContact} from '../components/slider/SlickSlider';
 
 const TURQUOISE = "#06b6d4";
 
 const contactOptions = [
   {
     label: 'Address',
-    value: 'Street No 1, Railway Road, Sahiwal, PK',
-    icon: GoLocation
+    value: 'Sahiwal, Punjab, PK',
+    icon: GoLocation,
+    wantToLink: false
   },
   {
     label: 'PHONE NUMBER',
     value: '+92 304 7204200',
-    icon: BsPhone
+    icon: BsPhone,
+    wantToLink: true,
   },
   {
     label: 'EMAIL',
     value: 'hi@nomanmujahid.com',
-    icon: HiOutlineMail
+    icon: HiOutlineMail,
+    wantToLink: true
   }
 ];
 
@@ -112,36 +116,58 @@ const Contact: React.FC = () => {
                 </Stack> */}
             </MotionBox>
         </Flex>
-        <Stack
-          spacing={{ base: 6, md: 0 }}
-          direction={{ base: 'column', md: 'row' }}
-          justifyContent="space-between"
-        >
-          {contactOptions.map((option, index) => (
-            <Fragment key={index}>
-              <Stack
-                spacing={3}
-                direction="column"
-                justifyContent="center"
-                alignItems="center"
-                px={3}
-              >
-                <Icon as={option.icon} w={10} h={10} color="#53c8c4" />
-                <Text fontSize="lg" fontWeight="semibold">
-                  {option.label}
-                </Text>
-                <Text fontSize="md" textAlign="center">
-                  {option.value}
-                </Text>
-              </Stack>
-              {contactOptions.length - 1 !== index && (
-                <Flex d={{ base: 'none', md: 'flex' }}>
-                  <Divider orientation="vertical" />
-                </Flex>
-              )}
-            </Fragment>
-          ))}
-        </Stack>
+        <SlickSliderContact>
+          {/* <Stack
+            spacing={{ base: 6, md: 0 }}
+            direction={{ base: 'column', md: 'row' }}
+            justifyContent="space-between"
+          > */}
+            {contactOptions.map((option, index) => (
+              <Fragment key={index}>
+                <Stack
+                  spacing={3}
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="center"
+                  px={3}
+                >
+                  <Icon as={option.icon} w={10} h={10} color="#53c8c4" />
+                  <Text fontSize="lg" fontWeight="semibold">
+                    {option.label}
+                  </Text>
+                  {option.wantToLink ? (<>
+                    {option.label === 'PHONE NUMBER' ? 
+                      <Text fontSize="md" textAlign="center">
+                        <a href={`tel:${option.value}`} target="_blank" rel="noopener noreferrer">
+                          {option.value}
+                        </a>
+                      </Text>
+                      : <>
+                        {option.label === 'EMAIL' ?  
+                          <Text fontSize="md" textAlign="center">
+                            <a href={`mailto:${option.value}`} target="_blank" rel="noopener noreferrer">
+                              {option.value}
+                            </a>
+                          </Text>
+                          
+                        : null}
+                      </>}
+                    </>)
+                    : <>
+                      <Text fontSize="md" textAlign="center">
+                        {option.value}
+                      </Text>
+                    </>}
+                </Stack>
+                {contactOptions.length - 1 !== index && (
+                  <Flex d={{ base: 'none', md: 'flex' }}>
+                    <Divider orientation="vertical" />
+                  </Flex>
+                )}
+              </Fragment>
+            ))}
+          {/* </Stack> */}
+        </SlickSliderContact>
         <FormControl onSubmit={handleSubmit}>
           <VStack
             as="form"

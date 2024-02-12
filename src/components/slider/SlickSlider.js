@@ -5,13 +5,13 @@ import './SlickSlider.css'
 import React, { useRef, useState } from "react";
 
 const NextArrow = (props) => {
-    const { className, style, onClick } = props;
+    const { className, style, onClick, top, display} = props;
 
     return (
 
         <div
             className={className}
-            style={{ ...style, display: "block", top: "150px" ,opacity: "0.9" , padding: "20px"  ,borderRadius: '50%'   }}
+            style={{ ...style, display: display, top: top ,opacity: "0.9" , padding: "20px"  ,borderRadius: '50%'   }}
             onClick={onClick}
         />
 
@@ -61,8 +61,8 @@ var settings = {
     slidesToScroll: 1,
     initialSlide: 0,
     variableWidth: false,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow top="150px" display="block"/>,
+    prevArrow: <PrevArrow top="150px" display="block"/>,
     responsive: [
         {
             breakpoint: 1300,
@@ -184,6 +184,108 @@ var imageSliderSettings = {
     ]
 };
 
+var contactSliderSetting = {
+    centerMode: false,
+    infinite: true,
+    dots: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 3000,
+    initialSlide: 0,
+    variableWidth: false,
+    nextArrow: <NextArrow top="100px" display="none"/>,
+    prevArrow: <PrevArrow top="100px" display="none" />,
+    appendDots: dots => (
+        <div
+          style={{
+                padding: "20px",
+          }}
+        >
+          <ul style={{ margin: "0px" }}> {dots} </ul>
+        </div>
+      ),
+    responsive: [
+        {
+            breakpoint: 1300,
+            settings: {
+                centerMode: false,
+                infinite: true,
+                autoplay: true,
+                speed: 2000,
+                autoplaySpeed: 3000,
+                dots: false,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                initialSlide: 0,
+                variableWidth: false,
+            }
+        },
+        {
+            breakpoint: 1024,
+            settings: {
+                centerMode: false,
+                infinite: true,
+                autoplay: true,
+                speed: 2000,
+                autoplaySpeed: 3000,
+                dots: false,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                initialSlide: 0,
+                variableWidth: false,
+            }
+        },
+        {
+            breakpoint: 800,
+            settings: {
+                centerMode: false,
+                infinite: true,
+                autoplay: true,
+                speed: 2000,
+                autoplaySpeed: 3000,
+                dots: false,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                initialSlide: 0,
+                variableWidth: false,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                centerMode: false,
+                infinite: true,
+                autoplay: true,
+                speed: 2000,
+                autoplaySpeed: 3000,
+                dots: false,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                initialSlide: 0,
+                variableWidth: false,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                centerMode: false,
+                infinite: true,
+                autoplay: true,
+                speed: 2000,
+                autoplaySpeed: 3000,
+                dots: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                initialSlide: 0,
+                variableWidth: false,
+            }
+        }
+    ]
+};
+
+
 export const SlickSlider = ({ children }) => {
     return (
     
@@ -217,5 +319,12 @@ export const SlickSliders = ({ children }) => {
                     {children}
             </Slider>
       
+    )
+}
+export const SlickSliderContact = ({ children }) => {
+    return (
+        <Slider className='w-full' {...contactSliderSetting}>
+                {children}
+        </Slider>
     )
 }
