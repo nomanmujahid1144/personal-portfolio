@@ -19,11 +19,11 @@ const NextArrow = (props) => {
 }
 
 const PrevArrow = (props) => {
-    const { className, style, onClick } = props;
+    const { className, style, onClick, top, display } = props;
     return (
         <div
             className={className}
-            style={{ ...style, display: "block", zIndex : "1" , top: "150px" ,opacity: "0.9" , padding: "20px"  ,borderRadius: '50%' }}
+            style={{ ...style, display: display, zIndex : "1" , top: top ,opacity: "0.9" , padding: "20px"  ,borderRadius: '50%' }}
             onClick={onClick}
         />
     );
@@ -78,7 +78,7 @@ var settings = {
             breakpoint: 1024,
             settings: {
                 speed: 1000,
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1,
                 initialSlide: 0,
                 variableWidth: false,
@@ -213,7 +213,7 @@ var contactSliderSetting = {
                 centerMode: false,
                 infinite: true,
                 autoplay: true,
-                speed: 2000,
+                speed: 20000,
                 autoplaySpeed: 3000,
                 dots: false,
                 slidesToShow: 3,
